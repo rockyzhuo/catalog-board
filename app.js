@@ -2,23 +2,19 @@
   'use strict';
 
   var WECHAT_PLACEHOLDER = '请替换微信号';
-  var TAP_SLOP = 10;
 
+  var poster = document.getElementById('poster');
+  var posterFrame = document.getElementById('posterFrame');
   var lb = document.getElementById('lb');
-  var lbImg = document.getElementById('lbImg');
   var lbClose = document.getElementById('lbClose');
-  var lbPrev = document.getElementById('lbPrev');
-  var lbNext = document.getElementById('lbNext');
   var lbScroller = document.getElementById('lbScroller');
-  var lbLabel = document.getElementById('lbLabel');
   var fab = document.getElementById('fab');
   var toast = document.getElementById('toast');
 
-  var shots = Array.prototype.slice.call(document.querySelectorAll('.shot[data-full]'));
-  var index = 0;
+  var toastTimer = null;
   var touchStartY = 0;
   var touchMoved = false;
-  var toastTimer = null;
+  var TAP_SLOP = 10;
 
   function showToast(msg) {
     if (!toast) return;
@@ -30,45 +26,24 @@
     }, 2200);
   }
 
-  function openAt(i) {
-    if (!shots.length) return;
-    index = (i + shots.length) % shots.length;
-    var el = shots[index];
-    var src = el.getAttribute('data-full');
-    var jpg = el.getAttribute('data-full-jpg') || src;
-    var cap = el.querySelector('figcaption');
-    // prefer webp; fall back to jpg if load fails
-    lbImg.onerror = function () {
-      if (lbImg.src !== jpg && jpg) {
-        lbImg.onerror = null;
-        lbImg.src = jpg;
-      }
-    };
-    lbImg.src = src;
-    lbImg.alt = (cap && cap.textContent) || '大图';
-    if (lbLabel) {
-      lbLabel.textContent = (index + 1) + ' / ' + shots.length + (cap ? ' · ' + cap.textContent : '');
-    }
-    lb.hidden = false;
+  function openLb() {
+    lb.classList.add('open');
     document.body.classList.add('lb-open');
     if (lbScroller) lbScroller.scrollTop = 0;
   }
 
   function closeLb() {
-    lb.hidden = true;
+    lb.classList.remove('open');
     document.body.classList.remove('lb-open');
-    lbImg.removeAttribute('src');
   }
 
   function isOpen() {
-    return !lb.hidden;
+    return lb.classList.contains('open');
   }
 
-  shots.forEach(function (el, i) {
-    el.setAttribute('role', 'button');
-    el.setAttribute('tabindex', '0');
-
-    el.addEventListener(
+  // 海报：区分点击与滚动，防误触
+  if (posterFrame) {
+    posterFrame.addEventListener(
       'touchstart',
       function (e) {
         if (e.touches.length !== 1) return;
@@ -78,67 +53,62 @@
       { passive: true }
     );
 
-    el.addEventListener(
+    posterFrame.addEventListener(
       'touchmove',
       function (e) {
         if (e.touches.length !== 1) return;
-        if (Math.abs(e.touches[0].clientY - touchStartY) > TAP_SLOP) touchMoved = true;
+        if (Math.abs(e.touches[0].clientY - touchStartY) > TAP_SLOP) {
+          touchMoved = true;
+        }
       },
       { passive: true }
     );
 
-    el.addEventListener('touchend', function (e) {
+    posterFrame.addEventListener('touchend', function (e) {
       if (touchMoved) return;
       e.preventDefault();
-      openAt(i);
+      openLb();
     });
 
-    el.addEventListener('click', function () {
+    posterFrame.addEventListener('click', function () {
+      // 桌面 / 无触控
       if ('ontouchstart' in window) return;
-      openAt(i);
+      openLb();
     });
+  }
 
-    el.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        openAt(i);
-      }
+  if (lbClose) {
+    lbClose.addEventListener('click', function (e) {
+      e.stopPropagation();
+      closeLb();
     });
-  });
+  }
 
-  if (lbClose) lbClose.addEventListener('click', function (e) {
-    e.stopPropagation();
-    closeLb();
-  });
-  if (lbPrev) lbPrev.addEventListener('click', function (e) {
-    e.stopPropagation();
-    openAt(index - 1);
-  });
-  if (lbNext) lbNext.addEventListener('click', function (e) {
-    e.stopPropagation();
-    openAt(index + 1);
-  });
-
+  // 点背景（非图片）关闭；点图片不关，便于滚动查看
   if (lb) {
     lb.addEventListener('click', function (e) {
-      if (e.target === lb || e.target === lbScroller) closeLb();
+      if (e.target === lb || e.target === lbScroller) {
+        closeLb();
+      }
     });
   }
 
   document.addEventListener('keydown', function (e) {
-    if (!isOpen()) return;
-    if (e.key === 'Escape') closeLb();
-    if (e.key === 'ArrowLeft') openAt(index - 1);
-    if (e.key === 'ArrowRight') openAt(index + 1);
+    if (e.key === 'Escape' && isOpen()) closeLb();
   });
 
+  // 联系客服：优先复制微信号占位，并提示替换
   if (fab) {
     fab.addEventListener('click', function () {
       var text = WECHAT_PLACEHOLDER;
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(
-          function () { showToast('已复制：' + text + '（请替换为真实微信号）'); },
-          function () { showToast(text + ' · 请替换为真实微信号'); }
+          function () {
+            showToast('已复制：' + text + '（请替换为真实微信号）');
+          },
+          function () {
+            showToast(text + ' · 请替换为真实微信号');
+          }
         );
       } else {
         showToast(text + ' · 请替换为真实微信号');
