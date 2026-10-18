@@ -57,6 +57,7 @@
   });
 
   lbClose.addEventListener('click', function (e) { e.stopPropagation(); close(); });
+  lbImg.addEventListener('click', function () { close(); });
   lb.addEventListener('click', function (e) {
     if (e.target === lb || e.target === lbScroller) close();
   });
