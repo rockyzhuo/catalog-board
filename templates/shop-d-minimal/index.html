@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>精选价目 · 极简列表</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#fff;color:#111;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;-webkit-tap-highlight-color:transparent}
+body{max-width:480px;margin:0 auto;min-height:100vh;padding-bottom:40px}
+.top{padding:20px 18px 12px;border-bottom:1px solid #eee}
+.top h1{font-size:22px;font-weight:700;letter-spacing:.04em}
+.top p{margin-top:6px;font-size:12px;color:#888}
+.list{padding:0 8px}
+.item{display:flex;align-items:center;gap:12px;padding:14px 10px;border-bottom:1px solid #f0f0f0}
+.item .thumb{width:56px;height:56px;border-radius:10px;overflow:hidden;flex-shrink:0;background:#f3f3f3;cursor:pointer}
+.item .thumb svg{width:100%;height:100%;display:block}
+.item .info{flex:1;min-width:0}
+.item .name{font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.item .desc{margin-top:3px;font-size:11px;color:#999}
+.item .price{font-size:16px;font-weight:700;color:#111;white-space:nowrap;margin-left:8px}
+.item .price small{font-size:11px;font-weight:500;color:#aaa}
+.sec-label{padding:16px 18px 4px;font-size:12px;color:#aaa;letter-spacing:.08em}
+.foot-note{padding:24px 18px;font-size:11px;color:#bbb;text-align:center;line-height:1.6}
+/* lightbox */
+.lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:100;align-items:center;justify-content:center;padding:24px}
+.lb.on{display:flex}
+.lb img,.lb svg{max-width:100%;max-height:80vh;border-radius:8px}
+.lb .close{position:absolute;top:16px;right:18px;color:#fff;font-size:28px;line-height:1;cursor:pointer;opacity:.85}
+</style>
+</head>
+<body>
+<header class="top">
+  <h1>精选价目</h1>
+  <p>模板 D · 极简列表 · 点图可放大</p>
+</header>
+
+<div class="sec-label">人气</div>
+<div class="list">
+  <div class="item">
+    <div class="thumb" data-zoom="1" aria-label="放大查看"><svg viewBox="0 0 112 112" xmlns="http://www.w3.org/2000/svg"><rect width="112" height="112" fill="#dbe4ff"/><circle cx="56" cy="48" r="22" fill="#fff" opacity=".9"/></svg></div>
+    <div class="info"><div class="name">云雾 Pro 套装</div><div class="desc">标准装 · 现货</div></div>
+    <div class="price">¥128<small>起</small></div>
+  </div>
+  <div class="item">
+    <div class="thumb" data-zoom="2" aria-label="放大查看"><svg viewBox="0 0 112 112" xmlns="http://www.w3.org/2000/svg"><rect width="112" height="112" fill="#ffe0d6"/><circle cx="56" cy="48" r="22" fill="#fff" opacity=".9"/></svg></div>
+    <div class="info"><div class="name">星夜限定款</div><div class="desc">礼盒装 · 预售</div></div>
+    <div class="price">¥168<small>起</small></div>
+  </div>
+  <div class="item">
+    <div class="thumb" data-zoom="3" aria-label="放大查看"><svg viewBox="0 0 112 112" xmlns="http://www.w3.org/2000/svg"><rect width="112" height="112" fill="#d8f5e8"/><circle cx="56" cy="48" r="22" fill="#fff" opacity=".9"/></svg></div>
+    <div class="info"><div class="name">清新薄荷系列</div><div class="desc">口味清爽</div></div>
+    <div class="price">¥88<small>起</small></div>
+  </div>
+</div>
+
+<div class="sec-label">更多</div>
+<div class="list">
+  <div class="item">
+    <div class="thumb" data-zoom="4" aria-label="放大查看"><svg viewBox="0 0 112 112" xmlns="http://www.w3.org/2000/svg"><rect width="112" height="112" fill="#f0e4ff"/><circle cx="56" cy="48" r="22" fill="#fff" opacity=".9"/></svg></div>
+    <div class="info"><div class="name">果香三连包</div><div class="desc">混合口味</div></div>
+    <div class="price">¥98<small>起</small></div>
+  </div>
+  <div class="item">
+    <div class="thumb" data-zoom="5" aria-label="放大查看"><svg viewBox="0 0 112 112" xmlns="http://www.w3.org/2000/svg"><rect width="112" height="112" fill="#fff0c8"/><circle cx="56" cy="48" r="22" fill="#fff" opacity=".9"/></svg></div>
+    <div class="info"><div class="name">经典原味罐</div><div class="desc">大容量</div></div>
+    <div class="price">¥118<small>起</small></div>
+  </div>
+  <div class="item">
+    <div class="thumb" data-zoom="6" aria-label="放大查看"><svg viewBox="0 0 112 112" xmlns="http://www.w3.org/2000/svg"><rect width="112" height="112" fill="#e0f0ff"/><circle cx="56" cy="48" r="22" fill="#fff" opacity=".9"/></svg></div>
+    <div class="info"><div class="name">便携口袋装</div><div class="desc">迷你规格</div></div>
+    <div class="price">¥58<small>起</small></div>
+  </div>
+</div>
+
+<p class="foot-note">本页为静态模板示例 · 价格与商品均为占位<br>点击左侧缩略图可放大查看</p>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true">
+  <span class="close" id="lbClose">&times;</span>
+  <div id="lbInner"></div>
+</div>
+<script>
+(function(){
+  var lb=document.getElementById('lb');
+  var inner=document.getElementById('lbInner');
+  document.querySelectorAll('.thumb').forEach(function(el){
+    el.addEventListener('click',function(){
+      inner.innerHTML=el.innerHTML;
+      var svg=inner.querySelector('svg');
+      if(svg){svg.setAttribute('viewBox','0 0 112 112');svg.style.width='min(80vw,320px)';svg.style.height='auto';}
+      lb.classList.add('on');
+    });
+  });
+  function close(){lb.classList.remove('on');inner.innerHTML='';}
+  document.getElementById('lbClose').addEventListener('click',close);
+  lb.addEventListener('click',function(e){if(e.target===lb)close();});
+})();
+</script>
+</body>
+</html>

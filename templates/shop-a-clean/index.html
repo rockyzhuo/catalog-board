@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>精选价目 · 清爽商城</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#f5f6f8;color:#1a1a1a;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;-webkit-tap-highlight-color:transparent}
+body{max-width:480px;margin:0 auto;min-height:100vh;padding-bottom:72px}
+.top{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid #eee;padding:12px 16px;display:flex;align-items:center;justify-content:space-between}
+.top h1{font-size:17px;font-weight:650;letter-spacing:.02em}
+.top .tag{font-size:11px;color:#888;background:#f0f1f3;padding:3px 8px;border-radius:999px}
+.hero{background:linear-gradient(135deg,#fff 0%,#f0f4ff 100%);padding:20px 16px 16px}
+.hero .shop{font-size:22px;font-weight:700}
+.hero p{margin-top:6px;font-size:13px;color:#666;line-height:1.5}
+.sec{padding:8px 12px 0}
+.sec-title{display:flex;align-items:center;gap:8px;padding:12px 4px 8px;font-size:15px;font-weight:650}
+.sec-title::before{content:"";width:3px;height:14px;background:#2f6bff;border-radius:2px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.card{background:#fff;border-radius:12px;overflow:hidden;border:1px solid #eceef2;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+.card .pic{aspect-ratio:1;background:#eef0f4;display:flex;align-items:center;justify-content:center}
+.card .pic svg{width:100%;height:100%;display:block}
+.card .body{padding:10px 10px 12px}
+.card .name{font-size:13px;font-weight:600;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.7em}
+.card .meta{margin-top:4px;font-size:11px;color:#999}
+.card .price{margin-top:8px;font-size:16px;font-weight:700;color:#e23;letter-spacing:-.02em}
+.card .price small{font-size:11px;font-weight:500;color:#999;margin-left:2px}
+.foot{position:fixed;left:0;right:0;bottom:0;max-width:480px;margin:0 auto;background:#fff;border-top:1px solid #eee;padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;gap:10px;z-index:30}
+.foot a{flex:1;text-align:center;text-decoration:none;border-radius:999px;padding:11px 0;font-size:14px;font-weight:600}
+.foot .ghost{background:#f3f4f6;color:#333}
+.foot .primary{background:#2f6bff;color:#fff}
+.note{padding:16px;font-size:11px;color:#aaa;text-align:center;line-height:1.6}
+</style>
+</head>
+<body>
+<header class="top">
+  <h1>精选价目</h1>
+  <span class="tag">模板 A · 清爽</span>
+</header>
+<section class="hero">
+  <div class="shop">精选价目</div>
+  <p>正品保障 · 现货速发 · 价格仅供参考，以下为示例商品</p>
+</section>
+
+<section class="sec">
+  <div class="sec-title">人气系列</div>
+  <div class="grid">
+    <article class="card">
+      <div class="pic"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#dbe4ff"/><stop offset="1" stop-color="#b8c9ff"/></linearGradient></defs><rect width="200" height="200" fill="url(#g1)"/><circle cx="100" cy="78" r="36" fill="#fff" opacity=".9"/><rect x="55" y="120" width="90" height="18" rx="9" fill="#fff" opacity=".75"/></svg></div>
+      <div class="body"><div class="name">云雾 Pro 套装</div><div class="meta">规格：标准装</div><div class="price">¥128<small>起</small></div></div>
+    </article>
+    <article class="card">
+      <div class="pic"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffe0d6"/><stop offset="1" stop-color="#ffb8a8"/></linearGradient></defs><rect width="200" height="200" fill="url(#g2)"/><circle cx="100" cy="78" r="36" fill="#fff" opacity=".9"/><rect x="55" y="120" width="90" height="18" rx="9" fill="#fff" opacity=".75"/></svg></div>
+      <div class="body"><div class="name">星夜限定款</div><div class="meta">规格：礼盒装</div><div class="price">¥168<small>起</small></div></div>
+    </article>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-title">日常畅销</div>
+  <div class="grid">
+    <article class="card">
+      <div class="pic"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g3" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d8f5e8"/><stop offset="1" stop-color="#9fe0c0"/></linearGradient></defs><rect width="200" height="200" fill="url(#g3)"/><circle cx="100" cy="78" r="36" fill="#fff" opacity=".9"/><rect x="55" y="120" width="90" height="18" rx="9" fill="#fff" opacity=".75"/></svg></div>
+      <div class="body"><div class="name">清新薄荷系列</div><div class="meta">口味：清爽</div><div class="price">¥88<small>起</small></div></div>
+    </article>
+    <article class="card">
+      <div class="pic"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g4" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f0e4ff"/><stop offset="1" stop-color="#d0b8ff"/></linearGradient></defs><rect width="200" height="200" fill="url(#g4)"/><circle cx="100" cy="78" r="36" fill="#fff" opacity=".9"/><rect x="55" y="120" width="90" height="18" rx="9" fill="#fff" opacity=".75"/></svg></div>
+      <div class="body"><div class="name">果香三连包</div><div class="meta">口味：混合</div><div class="price">¥98<small>起</small></div></div>
+    </article>
+    <article class="card">
+      <div class="pic"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g5" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff0c8"/><stop offset="1" stop-color="#ffd56a"/></linearGradient></defs><rect width="200" height="200" fill="url(#g5)"/><circle cx="100" cy="78" r="36" fill="#fff" opacity=".9"/><rect x="55" y="120" width="90" height="18" rx="9" fill="#fff" opacity=".75"/></svg></div>
+      <div class="body"><div class="name">经典原味罐</div><div class="meta">规格：大容量</div><div class="price">¥118<small>起</small></div></div>
+    </article>
+    <article class="card">
+      <div class="pic"><svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g6" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e0f0ff"/><stop offset="1" stop-color="#8ec8ff"/></linearGradient></defs><rect width="200" height="200" fill="url(#g6)"/><circle cx="100" cy="78" r="36" fill="#fff" opacity=".9"/><rect x="55" y="120" width="90" height="18" rx="9" fill="#fff" opacity=".75"/></svg></div>
+      <div class="body"><div class="name">便携口袋装</div><div class="meta">规格：迷你</div><div class="price">¥58<small>起</small></div></div>
+    </article>
+  </div>
+</section>
+
+<p class="note">本页为静态模板示例 · 价格与商品均为占位<br>实际内容可由客户自行替换</p>
+
+<footer class="foot">
+  <a class="ghost" href="#top">回到顶部</a>
+  <a class="primary" href="javascript:void(0)">联系客服</a>
+</footer>
+</body>
+</html>
