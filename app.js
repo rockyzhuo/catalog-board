@@ -2,8 +2,6 @@
   'use strict';
   var WECHAT = '请替换微信号';
   var TAP = 10;
-  var POSTER_FULL = 'poster-full.jpg';
-  var POSTER_FALLBACK = 'poster.jpg';
   var lb = document.getElementById('lb');
   var lbImg = document.getElementById('lbImg');
   var lbClose = document.getElementById('lbClose');
@@ -12,8 +10,6 @@
   var toast = document.getElementById('toast');
   var shots = [].slice.call(document.querySelectorAll('.shot'));
   var idx = 0, sy = 0, moved = false, timer;
-  var posterReady = false;
-  var posterSrc = POSTER_FULL;
 
   function tip(m) {
     toast.textContent = m;
@@ -21,56 +17,23 @@
     clearTimeout(timer);
     timer = setTimeout(function () { toast.classList.remove('show'); }, 2200);
   }
-
-  function scrollToShot(el) {
-    if (!lbScroller || !lbImg) return;
-    var yAttr = el && el.getAttribute('data-y');
-    var frac = yAttr != null && yAttr !== '' ? parseFloat(yAttr) : 0;
-    if (!(frac >= 0) || frac > 1) frac = 0;
-    var h = lbImg.naturalHeight || lbImg.height || 0;
-    var maxScroll = Math.max(0, lbScroller.scrollHeight - lbScroller.clientHeight);
-    var target = frac * h;
-    // Prefer image-relative offset when scroller padding is small
-    lbScroller.scrollTop = Math.min(maxScroll, Math.max(0, target));
-  }
-
   function openAt(i) {
     idx = (i + shots.length) % shots.length;
     var el = shots[idx];
+    var webp = el.getAttribute('data-full');
+    var jpg = el.getAttribute('data-jpg') || webp;
+    lbImg.onerror = function () {
+      if (lbImg.src.indexOf(jpg) === -1) { lbImg.onerror = null; lbImg.src = jpg; }
+    };
+    lbImg.src = webp;
     lb.hidden = false;
     document.body.classList.add('lb-open');
-
-    function afterShow() {
-      scrollToShot(el);
-    }
-
-    if (posterReady && lbImg.getAttribute('src')) {
-      afterShow();
-      return;
-    }
-
-    lbImg.onload = function () {
-      posterReady = true;
-      lbImg.onload = null;
-      afterShow();
-    };
-    lbImg.onerror = function () {
-      if (posterSrc !== POSTER_FALLBACK) {
-        posterSrc = POSTER_FALLBACK;
-        lbImg.onerror = null;
-        lbImg.src = POSTER_FALLBACK;
-      }
-    };
-    lbImg.src = posterSrc;
-    if (lbImg.complete && lbImg.naturalHeight) {
-      posterReady = true;
-      afterShow();
-    }
+    if (lbScroller) lbScroller.scrollTop = 0;
   }
-
   function close() {
     lb.hidden = true;
     document.body.classList.remove('lb-open');
+    lbImg.removeAttribute('src');
   }
 
   shots.forEach(function (el, i) {
