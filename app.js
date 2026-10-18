@@ -71,9 +71,9 @@
   fab.addEventListener('click', function () {
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(WECHAT).then(
-        function () { tip('已复制：' + WECHAT + '（请替换为真实微信号）'); },
-        function () { tip(WECHAT + ' · 请替换为真实微信号'); }
+        function () { tip('已复制：' + WECHAT); },
+        function () { tip(WECHAT); }
       );
-    } else tip(WECHAT + ' · 请替换为真实微信号');
+    } else tip(WECHAT);
   });
 })();
