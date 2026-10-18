@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  var WECHAT = '请替换微信号';
+  var WECHAT = 'rockyzhuo';
   var TAP = 10;
   var lb = document.getElementById('lb');
   var lbImg = document.getElementById('lbImg');
