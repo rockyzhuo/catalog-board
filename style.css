@@ -76,22 +76,13 @@ mark {
   margin: 14px 0;
 }
 .shots {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 6px;
   margin-top: 12px;
   width: 70%;
   max-width: 70%;
   justify-content: flex-start;
-}
-.shots.n1 { width: 70%; }
-.shots.n2 .shot,
-.shots.n3 .shot {
-  flex: 1 1 calc(50% - 4px);
-  min-width: 0;
-}
-.shots.n3 .shot {
-  flex: 1 1 calc(33.33% - 4px);
 }
 .shot {
   border: 0;
@@ -101,14 +92,16 @@ mark {
   overflow: hidden;
   cursor: zoom-in;
   -webkit-tap-highlight-color: transparent;
-  min-height: 120px;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  min-width: 0;
 }
 .shot img {
   display: block;
   width: 100%;
-  height: auto;
-  min-height: 120px;
+  height: 100%;
   object-fit: cover;
+  object-position: center;
   background: #e4e5e7;
   border-radius: 0;
 }
