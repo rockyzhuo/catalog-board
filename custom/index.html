@@ -3,238 +3,42 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="format-detection" content="telephone=no" />
-  <meta name="referrer" content="no-referrer" />
   <meta name="theme-color" content="#e8f1fb" />
-  <title>示例定制店 · 定制版</title>
+  <title>示例定制店 · 选择版本</title>
   <link rel="stylesheet" href="style.css" />
+  <meta http-equiv="refresh" content="0; url=full/" />
+  <script>location.replace('full/' + location.search + location.hash);</script>
 </head>
 <body>
   <header class="topbar">
     <div class="topbar-inner">
       <div class="brand">
         <div class="brand-title">示例定制店</div>
-        <div class="brand-sub">定制版 · 点击图片放大</div>
+        <div class="brand-sub">定制版入口</div>
       </div>
-      <span class="badge">定制版</span>
+      <span class="badge">定制</span>
     </div>
   </header>
-
   <div class="theme-bar" role="group" aria-label="专属模板">
     <span class="theme-bar-label">专属模板</span>
     <button type="button" class="theme-pill" data-theme-btn="mist" aria-pressed="true">清爽蓝</button>
     <button type="button" class="theme-pill" data-theme-btn="noir" aria-pressed="false">深金夜</button>
     <button type="button" class="theme-pill" data-theme-btn="poster" aria-pressed="false">海报红</button>
   </div>
-
-  <nav class="chips" aria-label="系列导航">
-    <a href="#song">SONG</a>
-    <a href="#zgar">zgar</a>
-    <a href="#gowif">GOwif</a>
-    <a href="#snowplus">Snowplus</a>
-    <a href="#jollyice">JOLLYICE</a>
-    <a href="#ks">KS Quik</a>
-    <a href="#wevape">WE VAPE</a>
-    <a href="#auth">鉴别</a>
-    <a href="#more">更多</a>
-  </nav>
-
   <main class="page">
     <section class="intro card">
-      <h1>示例定制店 · 精选价目</h1>
-      <p>定制版演示：上方可切换 3 套专属模板。内容与主站一致，点任意图片可放大查看细节。</p>
-      <p class="warn"><strong>18+</strong> · 禁止向未成年人传播 · 价格与库存以沟通确认为准</p>
-    </section>
-
-    <section class="card" id="song">
-      <h2>SONG</h2>
-      <p>Below Zero / 冰果 A38 / 双萃等系列。下列为原图实拍与口味全表，便于对照颜色与口味名。</p>
-      <div class="grid">
-        <figure class="shot" data-full="../images/1.jpg">
-          <img src="../images/1.jpg" alt="SONG Below Zero 实拍" width="640" height="853" loading="eager" decoding="async" />
-          <figcaption>Below Zero 实拍 · 白桃乌龙等</figcaption>
-        </figure>
-        <figure class="shot" data-full="../images/2.jpg">
-          <img src="../images/2.jpg" alt="SONG 冰果 A38 口味表" width="640" height="1332" loading="eager" decoding="async" />
-          <figcaption>冰果 A38 · 约 17000 口口味全表</figcaption>
-        </figure>
-        <figure class="shot" data-full="../images/5.jpg">
-          <img src="../images/5.jpg" alt="SONG 双萃激爽海报" width="340" height="640" loading="lazy" decoding="async" />
-          <figcaption>双萃激爽 · 约 16000 口 / 12 款</figcaption>
-        </figure>
-        <figure class="shot" data-full="../images/6.jpg">
-          <img src="../images/6.jpg" alt="SONG 双味机实拍 草莓西瓜" width="640" height="855" loading="lazy" decoding="async" />
-          <figcaption>双味机实拍 · 草莓 / 西瓜</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="card" id="zgar">
-      <h2>zgar</h2>
-      <p>Dual Mesh 系列实拍与包装对照。购前可对照防伪与印刷细节。</p>
-      <div class="grid">
-        <figure class="shot" data-full="../images/8.jpg">
-          <img src="../images/8.jpg" alt="zgar Dual Mesh 实拍" width="640" height="853" loading="lazy" decoding="async" />
-          <figcaption>Dual Mesh 实拍 · Peach Ice 等</figcaption>
-        </figure>
-        <figure class="shot" data-full="../images/9.jpg">
-          <img src="../images/9.jpg" alt="zgar Super Nova 真假对比" width="640" height="853" loading="lazy" decoding="async" />
-          <figcaption>Super Nova 真假对比</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="card" id="gowif">
-      <h2>GOwif Chill</h2>
-      <p>Chill 系列口味长图，含多款标注 NEW 的花纹机身。</p>
-      <div class="grid grid-1">
-        <figure class="shot" data-full="../images/3.jpg">
-          <img src="../images/3.jpg" alt="GOwif Chill 口味长图" width="540" height="1458" loading="lazy" decoding="async" />
-          <figcaption>Chill Series · 口味与参数一览</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="card" id="snowplus">
-      <h2>Snowplus DASH</h2>
-      <p>DASH 包装升级口味表，含杨枝甘露、莫吉托等。</p>
-      <div class="grid grid-1">
-        <figure class="shot" data-full="../images/12.jpg">
-          <img src="../images/12.jpg" alt="Snowplus DASH 口味表" width="540" height="1924" loading="lazy" decoding="async" />
-          <figcaption>DASH · 多口味对照</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="card" id="jollyice">
-      <h2>JOLLYICE</h2>
-      <p>约 12000 口系列，含可乐冰、蜜桃乌龙等口味网格。</p>
-      <div class="grid grid-1">
-        <figure class="shot" data-full="../images/13.jpg">
-          <img src="../images/13.jpg" alt="JOLLYICE 口味海报" width="540" height="801" loading="lazy" decoding="async" />
-          <figcaption>JOLLYICE · 口味与参数</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="card" id="ks">
-      <h2>Kardinal Stick Quik</h2>
-      <p>Quik 5000 口味表，含冰度与尼古丁标注（图内信息）。</p>
-      <div class="grid grid-1">
-        <figure class="shot" data-full="../images/15.jpg">
-          <img src="../images/15.jpg" alt="KS Quik 5000 口味表" width="640" height="1305" loading="lazy" decoding="async" />
-          <figcaption>Quik 5000 · 热门口味与全表</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="card" id="wevape">
-      <h2>WE VAPE / 炫彩</h2>
-      <p>Bubble Mon 机身陈列与炫彩③代手写口味单。</p>
-      <div class="grid">
-        <figure class="shot" data-full="../images/22.jpg">
-          <img src="../images/22.jpg" alt="WE VAPE Bubble Mon 实拍" width="640" height="698" loading="lazy" decoding="async" />
-          <figcaption>Bubble Mon / Graffiti-C POD</figcaption>
-        </figure>
-        <figure class="shot" data-full="../images/23.jpg">
-          <img src="../images/23.jpg" alt="炫彩三代口味手写单" width="718" height="493" loading="lazy" decoding="async" />
-          <figcaption>炫彩③代 · 12 味手写单</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="card" id="auth">
-      <h2>正品鉴别</h2>
-      <p>对比生产日期、防伪贴与印刷细节。不确定时先对照再下单。</p>
-      <div class="grid">
-        <figure class="shot" data-full="../images/4.jpg">
-          <img src="../images/4.jpg" alt="真假包装对比" width="603" height="1311" loading="lazy" decoding="async" />
-          <figcaption>包装真假对比 · 日期与防伪贴</figcaption>
-        </figure>
-        <figure class="shot" data-full="../images/9.jpg">
-          <img src="../images/9.jpg" alt="zgar 真假包装" width="640" height="853" loading="lazy" decoding="async" />
-          <figcaption>zgar 包装印刷差异</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="card" id="more">
-      <h2>更多图册</h2>
-      <p>其余原图实拍与口味卡，点击即可放大。</p>
-      <div class="grid">
-        <figure class="shot" data-full="../images/7.jpg">
-          <img src="../images/7.jpg" alt="口味卡片网格" width="603" height="443" loading="lazy" decoding="async" />
-          <figcaption>口味卡 · 冰度/甜度对照</figcaption>
-        </figure>
-        <figure class="shot" data-full="../images/10.jpg">
-          <img src="../images/10.jpg" alt="产品图 10" width="366" height="384" loading="lazy" decoding="async" />
-          <figcaption>图 10</figcaption>
-        </figure>
-        <figure class="shot" data-full="../images/11.jpg">
-          <img src="../images/11.jpg" alt="产品图 11" width="640" height="853" loading="lazy" decoding="async" />
-          <figcaption>图 11</figcaption>
-        </figure>
-        <figure class="shot" data-full="../images/14.jpg">
-          <img src="../images/14.jpg" alt="产品图 14" width="603" height="597" loading="lazy" decoding="async" />
-          <figcaption>图 14</figcaption>
-        </figure>
-        <figure class="shot" data-full="../images/16.jpg">
-          <img src="../images/16.jpg" alt="产品图 16" width="640" height="853" loading="lazy" decoding="async" />
-          <figcaption>图 16</figcaption>
-        </figure>
-        <figure class="shot" data-full="../images/17.jpg">
-          <img src="../images/17.jpg" alt="产品图 17" width="452" height="640" loading="lazy" decoding="async" />
-          <figcaption>图 17</figcaption>
-        </figure>
-        <figure class="shot" data-full="../images/18.jpg">
-          <img src="../images/18.jpg" alt="产品图 18" width="640" height="853" loading="lazy" decoding="async" />
-          <figcaption>图 18</figcaption>
-        </figure>
-        <figure class="shot" data-full="../images/19.jpg">
-          <img src="../images/19.jpg" alt="产品图 19" width="473" height="640" loading="lazy" decoding="async" />
-          <figcaption>图 19</figcaption>
-        </figure>
-        <figure class="shot" data-full="../images/20.jpg">
-          <img src="../images/20.jpg" alt="产品图 20" width="400" height="600" loading="lazy" decoding="async" />
-          <figcaption>图 20</figcaption>
-        </figure>
-      </div>
-      <div class="grid grid-1" style="margin-top:12px">
-        <figure class="shot" data-full="../images/21.jpg">
-          <img src="../images/21.jpg" alt="产品图 21" width="640" height="853" loading="lazy" decoding="async" />
-          <figcaption>图 21</figcaption>
-        </figure>
+      <h1>选择定制版本</h1>
+      <p>完整版含主站全部价目文案；预览版仅展示部分热门 SKU，适合当作样板店入口。</p>
+      <p class="warn-line"><strong>18+</strong> · 禁止向未成年人传播</p>
+      <div class="chooser">
+        <a href="full/"><strong>完整版 →</strong><span>全部产品文案 + 价格 + 图册（与主站一致）</span></a>
+        <a href="partial/"><strong>预览版 →</strong><span>6 款热门 SKU 预览（SONG / GOwif / 冰熊 / Snowplus）</span></a>
       </div>
     </section>
   </main>
-
   <footer class="footer">
-    <p>定制版演示 · <strong>18+</strong> · 请勿向未成年人传播</p>
-    <p>内容来自原图资料，实际以沟通确认为准</p>
+    <p>若未自动跳转，请点击上方「完整版」</p>
   </footer>
-
-  <button type="button" class="fab" id="fab" aria-label="联系客服">
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M12 2C6.48 2 2 6.05 2 11c0 2.62 1.22 4.98 3.16 6.64L4.5 22l4.3-1.9c1.02.3 2.1.45 3.2.45 5.52 0 10-4.05 10-9S17.52 2 12 2zm-1.1 12.4l-2.55-2.72-3.15 2.72L12 7.8l6.8 6.6-3.15-2.72-2.55 2.72H10.9z"/>
-    </svg>
-    联系客服
-  </button>
-
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
-
-  <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="大图预览">
-    <div class="lb-toolbar">
-      <button type="button" class="lb-nav" id="lbPrev" aria-label="上一张">‹</button>
-      <span id="lbLabel">双指可缩放</span>
-      <button type="button" class="lb-nav" id="lbNext" aria-label="下一张">›</button>
-      <button type="button" class="lb-close" id="lbClose" aria-label="关闭">×</button>
-    </div>
-    <div class="lb-scroller" id="lbScroller">
-      <img id="lbImg" src="" alt="大图" decoding="async" />
-    </div>
-    <div class="lb-tip">点击空白处或 × 关闭</div>
-  </div>
-
   <script src="app.js" defer></script>
 </body>
 </html>
