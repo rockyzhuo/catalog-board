@@ -35,7 +35,15 @@
     index = (i + shots.length) % shots.length;
     var el = shots[index];
     var src = el.getAttribute('data-full');
+    var jpg = el.getAttribute('data-full-jpg') || src;
     var cap = el.querySelector('figcaption');
+    // prefer webp; fall back to jpg if load fails
+    lbImg.onerror = function () {
+      if (lbImg.src !== jpg && jpg) {
+        lbImg.onerror = null;
+        lbImg.src = jpg;
+      }
+    };
     lbImg.src = src;
     lbImg.alt = (cap && cap.textContent) || '大图';
     if (lbLabel) {
