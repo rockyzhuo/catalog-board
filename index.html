@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="referrer" content="no-referrer" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>精选价目</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-title">精选价目</div>
+        <div class="brand-sub">滚动浏览 · 点击图片放大</div>
+      </div>
+      <span class="badge">预览版</span>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="hero-card" aria-label="价目长图">
+      <div class="hero-hint">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M8 10l4-4 4 4M8 14l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>上下滑动查看完整价目 · 轻点图片可放大</span>
+      </div>
+      <div class="poster-frame" id="posterFrame" role="button" tabindex="0" aria-label="点击放大价目图">
+        <img
+          class="poster"
+          id="poster"
+          src="poster.jpg"
+          alt="精选价目表"
+          decoding="async"
+          loading="eager"
+        />
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>仅供预览 · <strong>18+</strong> · 请勿向未成年人传播</p>
+    <p>内容来自价目海报，实际以沟通确认为准</p>
+  </footer>
+
+  <button type="button" class="fab" id="fab" aria-label="联系客服">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 2C6.48 2 2 6.05 2 11c0 2.62 1.22 4.98 3.16 6.64L4.5 22l4.3-1.9c1.02.3 2.1.45 3.2.45 5.52 0 10-4.05 10-9S17.52 2 12 2zm-1.1 12.4l-2.55-2.72-3.15 2.72L12 7.8l6.8 6.6-3.15-2.72-2.55 2.72H10.9z"/>
+    </svg>
+    联系客服
+  </button>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="价目大图">
+    <div class="lb-toolbar">
+      <span>双指可缩放 · 上下滑动</span>
+      <button type="button" class="lb-close" id="lbClose" aria-label="关闭">×</button>
+    </div>
+    <div class="lb-scroller" id="lbScroller">
+      <img src="poster.jpg" alt="价目表大图" decoding="async" />
+    </div>
+    <div class="lb-tip">点击空白处或 × 关闭</div>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
