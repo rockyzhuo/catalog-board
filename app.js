@@ -68,12 +68,28 @@
     if (e.key === 'ArrowRight') openAt(idx + 1);
   });
 
+  function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text).then(function () { return true; }, function () { return false; });
+    }
+    return Promise.resolve(false).then(function () {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.cssText = 'position:fixed;left:-9999px;top:0';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      ta.setSelectionRange(0, text.length);
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+      document.body.removeChild(ta);
+      return ok;
+    });
+  }
   fab.addEventListener('click', function () {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(WECHAT).then(
-        function () { tip('已复制：' + WECHAT); },
-        function () { tip(WECHAT); }
-      );
-    } else tip(WECHAT);
+    copyText(WECHAT).then(function (ok) {
+      tip(ok ? ('已复制微信号：' + WECHAT) : ('微信号：' + WECHAT + '（请长按复制）'));
+    });
   });
 })();
